@@ -20,9 +20,34 @@
 <main>
     <section id="search">
         <h2>Consulta de libros</h2>
-        <form>
-            <input type="text" placeholder="Buscar por título, autor, ISBN, tema...">
-            <button type="submit">Buscar</button>
+        <form action="resultados.html" method="get">
+
+        <!-- Selección de criterios de búsqueda -->
+        <label for="criterio_busqueda">Seleccione una opción:</label>
+        <select id="criterio_busqueda" name="criterio_busqueda">
+            <!-- Grupo de opciones para detalles del libro -->
+            <optgroup label="Detalles del Libro">
+                <option value="isbn">ISBN</option>
+                <option value="titulo">Título</option>
+                <option value="autor">Autor</option>
+                <option value="fecha_edicion">Fecha de Edición</option>
+                <option value="numero_paginas">Número de Páginas</option>
+                <option value="cantidad_ejemplares">Cantidad de Ejemplares</option>
+                <option value="cantidad_disponibles">Cantidad de Ejemplares Disponibles</option>
+                <option value="resumen">Resumen</option>
+                <option value="tipo_medio">Tipo de Medio</option>
+                <option value="tema">Tema</option>
+                <option value="ubicacion_fisica">Ubicación Física</option>
+            </optgroup>
+            
+        </select><br><br>
+
+        <!-- Campo de texto para ingresar el valor de búsqueda -->
+        <label for="valor_busqueda">Detalle de selección:</label>
+        <input type="text" id="valor_busqueda" name="valor_busqueda" placeholder="Defina su solicitud"><br><br>
+
+        <!-- Botón de búsqueda -->
+        <button type="submit">Buscar</button>
         </form>
     </section>
     <section id="results">
