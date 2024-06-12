@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -6,55 +7,61 @@
     <title>Consulta de libros</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-<header>
-    <h1>Biblioteca</h1>
-    <nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Catálogo</a></li>
-            <li><a href="#">Sobre nosotros</a></li>
 
-        </ul>
-    </nav>
-</header>
-<main>
-    <section id="search">
-        <h2>Consulta de libros</h2>
-        <form action="resultados.html" method="get">
+<body>
+    <header>
+        <h1>Biblioteca</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Catálogo</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
 
-        <!-- Selección de criterios de búsqueda -->
-        <label for="criterio_busqueda">Seleccione una opción:</label>
-        <select id="criterio_busqueda" name="criterio_busqueda">
-            <!-- Grupo de opciones para detalles del libro -->
-            <optgroup label="Detalles del Libro">
-                <option value="isbn">ISBN</option>
-                <option value="titulo">Título</option>
-                <option value="autor">Autor</option>
-                <option value="fecha_edicion">Fecha de Edición</option>
-                <option value="numero_paginas">Número de Páginas</option>
-                <option value="cantidad_ejemplares">Cantidad de Ejemplares</option>
-                <option value="cantidad_disponibles">Cantidad de Ejemplares Disponibles</option>
-                <option value="resumen">Resumen</option>
-                <option value="tipo_medio">Tipo de Medio</option>
-                <option value="tema">Tema</option>
-                <option value="ubicacion_fisica">Ubicación Física</option>
-            </optgroup>
-            
-        </select><br><br>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="search">
+            <h2>Consulta de libros</h2>
+            <form id="search-form">
 
-        <!-- Campo de texto para ingresar el valor de búsqueda -->
-        <label for="valor_busqueda">Detalle de selección:</label>
-        <input type="text" id="valor_busqueda" name="valor_busqueda" placeholder="Defina su solicitud"><br><br>
+                <!-- Selección de criterios de búsqueda -->
+                <label for="criterio_busqueda">Seleccione una opción:</label>
+                <select id="criterio_busqueda" name="criterio_busqueda">
+                    <!-- Grupo de opciones para detalles del libro -->
+                    <optgroup label="Detalles del Libro">
+                        <option value="isbn">ISBN</option>
+                        <option value="titulo">Título</option>
+                        <option value="autor">Autor</option>
+                        <option value="fecha_edicion">Fecha de Edición</option>
+                        <option value="numero_paginas">Número de Páginas</option>
+                        <option value="cantidad_ejemplares">Cantidad de Ejemplares</option>
+                        <option value="cantidad_disponibles">Cantidad de Ejemplares Disponibles</option>
+                        <option value="resumen">Resumen</option>
+                        <option value="tipo_medio">Tipo de Medio</option>
+                        <option value="tema">Tema</option>
+                        <option value="ubicacion_fisica">Ubicación Física</option>
+                    </optgroup>
 
-        <!-- Botón de búsqueda -->
-        <button type="submit">Buscar</button>
-        <button type="reset"> Limpiar </button>
-        </form>
-    </section>
-    <section id="results">
+                </select><br><br>
 
-    </section>
-</main>
-<footer>
-    <p>&copy; 2024 Biblioteca XYZ. Todos los derechos reservados.</p>
-</footer>
+                <!-- Campo de texto para ingresar el valor de búsqueda -->
+                <label for="valor_busqueda">Detalle de selección:</label>
+                <input type="text" id="valor_busqueda" name="valor_busqueda" placeholder="Defina su solicitud"><br><br>
+
+                <!-- Botón de búsqueda -->
+                <button type="submit">Buscar</button>
+                <button type="reset"> Limpiar </button>
+            </form>
+        </section>
+        <section id="results">
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Biblioteca XYZ. Todos los derechos reservados.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
