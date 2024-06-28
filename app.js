@@ -1,33 +1,36 @@
 document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const criterio = document.getElementById('criterio_busqueda').value;
-    const valor = document.getElementById('valor_busqueda').value;
-    
-    // URL de la API de JSONPlaceholder (cambiado para una consulta de libros simulada)
-    const apiUrl = `https://jsonplaceholder.typicode.com/posts?${criterio}=${valor}`;
+    const id = document.getElementById('id_busqueda').value;
+    const apiUrl = `https://jsonplaceholder.typicode.com/posts/1/comments?id=${id}`;
     
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            // Limpiar resultados anteriores
-            const resultsContainer = document.getElementById('results');
+            const resultsContainer = document.getElementById('results'); 
             resultsContainer.innerHTML = '';
-            
-            // Mostrar los resultados (tomando solo los primeros 4 campos)
-            data.forEach(item => {
-                const resultDiv = document.createElement('div');
-                resultDiv.classList.add('result');
-                
-                resultDiv.innerHTML = `
-                    <p><strong>ID:</strong> ${item.id}</p>
-                    <p><strong>Título:</strong> ${item.title}</p>
-                    <p><strong>Contenido:</strong> ${item.body}</p>
-                    <p><strong>Usuario ID:</strong> ${item.userId}</p>
-                `;
-                
-                resultsContainer.appendChild(resultDiv);
-            });
+
+            if (data.length > 0) {
+                data.forEach(item => {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.classList.add('result');
+                    
+                    resultDiv.innerHTML = `
+                        <p><strong>Post ID:</strong> ${item.postId}</p>
+                        <p><strong>ID:</strong> ${item.id}</p>
+                        <p><strong>Name:</strong> ${item.name}</p>
+                        <p><strong>Email:</strong> ${item.email}</p>
+                        <p><strong>Body:</strong> ${item.body}</p>
+                    `;
+                    
+                    resultsContainer.appendChild(resultDiv);
+                });
+            } else {
+                resultsContainer.innerHTML = '<p>No se encontraron resultados para el ID proporcionado.</p>';
+            }
         })
-        .catch(error => console.error('Error al obtener los datos:', error));
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+            document.getElementById('results').innerHTML = '<p>Error al obtener los datos. Inténtelo nuevamente.</p>';
+        });
 });
